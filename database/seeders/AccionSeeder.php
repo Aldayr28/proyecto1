@@ -4,15 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Producto;
+use App\Models\Accion;
 
-class ProductoSeeder extends Seeder
+class AccionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Producto::factory(20)->create();
+        Accion::factory(20)->create();
     }
 }
