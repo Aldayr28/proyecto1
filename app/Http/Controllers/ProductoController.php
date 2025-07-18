@@ -4,13 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ProductoController extends Controller
 {
     // Mostrar todos los productos
     public function index()
     {
-        return Producto::all();
+        //cada producto vendra con su usuario relacionado
+        //return Producto::with('user')->get();
+        $productos = \App\Models\Producto::with('user')->get();
+
+        return Inertia::render('productos', [
+        'productos' => $productos
+    ]);
     }
 
     // Crear un nuevo producto
@@ -23,7 +30,8 @@ class ProductoController extends Controller
     // Mostrar un producto específico
     public function show($id)
     {
-        return Producto::findOrFail($id);
+        //cada producto vendra con su usuario relacionado
+        return Producto::with('user')->findOrFail($id);
     }
 
     // Actualizar un producto

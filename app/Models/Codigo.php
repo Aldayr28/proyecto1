@@ -9,10 +9,5 @@ class Codigo extends Model
 {
     /** @use HasFactory<\Database\Factories\CodigoFactory> */
     use HasFactory;
-    protected $fillable = [
-        'codigo',
-        'descripcion',
-        'usado',
-        'fecha_vencimiento',
-    ];
+    protected $fillable = ['codigo','descripcion','usado','fecha_vencimiento',];
 }

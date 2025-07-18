@@ -10,5 +10,11 @@ class Producto extends Model
     
     use HasFactory; 
     
-    protected $fillable = ['nombre', 'precio', 'stock', 'precisal', 'config'];
+    protected $fillable = ['nombre', 'precio', 'stock', 'precisal', 'config', 'user_id'];
+
+    // Relación inversa: un producto pertenece a un usuario
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

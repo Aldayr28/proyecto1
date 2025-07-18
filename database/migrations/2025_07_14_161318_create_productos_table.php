@@ -17,6 +17,11 @@ return new class extends Migration
             $table->decimal('precio', 8, 2);
             $table->integer('stock');
             $table->decimal('precisal', 8, 2);
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+            //la columna puede estar -> vacia nullable()
+            //se relaciona con la tabla user ->constrained()
+            //si se elimina el usuario el campo queda en null y NO elimina los productos de ese usuario->onDelete('set null');
+            //y si se pone en ->onDelete('cascade'); automaticamente se elimina tambien producto
             $table->timestamps();
         });
     }
