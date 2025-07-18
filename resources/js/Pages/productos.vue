@@ -22,5 +22,3 @@ defineProps({
   productos: Array
 })
 </script>
-
-
